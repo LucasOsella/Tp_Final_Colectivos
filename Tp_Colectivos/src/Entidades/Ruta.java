@@ -1,0 +1,80 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Entidades;
+
+import java.time.LocalTime;
+
+/**
+ *
+ * @author Lucas
+ */
+public class Ruta {
+    private int idRuta;
+    private String origen;
+    private String destino;
+    private LocalTime duracion_estimadad;
+    private boolean estado;
+
+    public Ruta() {
+    }
+
+    public Ruta(int idRuta, String origen, String destino, LocalTime duracion_estimadad, boolean estado) {
+        this.idRuta = idRuta;
+        this.origen = origen;
+        this.destino = destino;
+        this.duracion_estimadad = duracion_estimadad;
+        this.estado = estado;
+    }
+
+    public Ruta(String origen, String destino, LocalTime duracion_estimadad, boolean estado) {
+        this.origen = origen;
+        this.destino = destino;
+        this.duracion_estimadad = duracion_estimadad;
+        this.estado = estado;
+    }
+
+    public int getIdRuta() {
+        return idRuta;
+    }
+
+    public void setIdRuta(int idRuta) {
+        this.idRuta = idRuta;
+    }
+
+    public String getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(String origen) {
+        this.origen = origen;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
+    }
+
+    public LocalTime getDuracion_estimadad() {
+        return duracion_estimadad;
+    }
+
+    public void setDuracion_estimadad(LocalTime duracion_estimadad) {
+        this.duracion_estimadad = duracion_estimadad;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
+    
+}
