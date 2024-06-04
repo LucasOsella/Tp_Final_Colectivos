@@ -13,7 +13,7 @@ import java.time.LocalTime;
  */
 public class Horario {
     private int idHorario;
-    private int idRuta;
+    private Ruta idRuta;
     private LocalTime hora_salida;
     private LocalTime hora_llegada;
     private boolean estado;
@@ -21,7 +21,7 @@ public class Horario {
     public Horario() {
     }
 
-    public Horario(int idHorario, int idRuta, LocalTime hora_salida, LocalTime hora_llegada, boolean estado) {
+    public Horario(int idHorario, Ruta idRuta, LocalTime hora_salida, LocalTime hora_llegada, boolean estado) {
         this.idHorario = idHorario;
         this.idRuta = idRuta;
         this.hora_salida = hora_salida;
@@ -29,7 +29,7 @@ public class Horario {
         this.estado = estado;
     }
 
-    public Horario(int idRuta, LocalTime hora_salida, LocalTime hora_llegada, boolean estado) {
+    public Horario(Ruta idRuta, LocalTime hora_salida, LocalTime hora_llegada, boolean estado) {
         this.idRuta = idRuta;
         this.hora_salida = hora_salida;
         this.hora_llegada = hora_llegada;
@@ -44,11 +44,11 @@ public class Horario {
         this.idHorario = idHorario;
     }
 
-    public int getIdRuta() {
+    public Ruta getIdRuta() {
         return idRuta;
     }
 
-    public void setIdRuta(int idRuta) {
+    public void setIdRuta(Ruta idRuta) {
         this.idRuta = idRuta;
     }
 

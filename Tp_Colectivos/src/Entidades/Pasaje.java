@@ -14,9 +14,9 @@ import java.time.*;
  */
 public class Pasaje {
     private int idPasaje;
-    private int idPasajero;
-    private int idColectivo;
-    private int idRuta;
+    private Pasajero idPasajero;
+    private Colectivo idColectivo;
+    private Ruta idRuta;
     private LocalDate fechaViaje;
     private LocalTime horaViaje;
     private int asiento;
@@ -25,7 +25,7 @@ public class Pasaje {
     public Pasaje() {
     }
 
-    public Pasaje(int idPasaje, int idPasajero, int idColectivo, int idRuta, LocalDate fechaViaje, LocalTime horaViaje, int asiento, double precio) {
+    public Pasaje(int idPasaje, Pasajero idPasajero, Colectivo idColectivo, Ruta idRuta, LocalDate fechaViaje, LocalTime horaViaje, int asiento, double precio) {
         this.idPasaje = idPasaje;
         this.idPasajero = idPasajero;
         this.idColectivo = idColectivo;
@@ -36,7 +36,7 @@ public class Pasaje {
         this.precio = precio;
     }
 
-    public Pasaje(int idPasajero, int idColectivo, int idRuta, LocalDate fechaViaje, LocalTime horaViaje, int asiento, double precio) {
+    public Pasaje(Pasajero idPasajero, Colectivo idColectivo, Ruta idRuta, LocalDate fechaViaje, LocalTime horaViaje, int asiento, double precio) {
         this.idPasajero = idPasajero;
         this.idColectivo = idColectivo;
         this.idRuta = idRuta;
@@ -54,27 +54,27 @@ public class Pasaje {
         this.idPasaje = idPasaje;
     }
 
-    public int getIdPasajero() {
+    public Pasajero getIdPasajero() {
         return idPasajero;
     }
 
-    public void setIdPasajero(int idPasajero) {
+    public void setIdPasajero(Pasajero idPasajero) {
         this.idPasajero = idPasajero;
     }
 
-    public int getIdColectivo() {
+    public Colectivo getIdColectivo() {
         return idColectivo;
     }
 
-    public void setIdColectivo(int idColectivo) {
+    public void setIdColectivo(Colectivo idColectivo) {
         this.idColectivo = idColectivo;
     }
 
-    public int getIdRuta() {
+    public Ruta getIdRuta() {
         return idRuta;
     }
 
-    public void setIdRuta(int idRuta) {
+    public void setIdRuta(Ruta idRuta) {
         this.idRuta = idRuta;
     }
 
