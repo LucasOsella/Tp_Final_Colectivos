@@ -5,7 +5,8 @@
  */
 package tp_colectivos;
 
-import AccesosDatos.RutaData;
+import AccesosDatos.*;
+import Entidades.Horario;
 import Entidades.Ruta;
 import java.time.LocalTime;
 
@@ -21,10 +22,14 @@ public class Tp_Colectivos {
     public static void main(String[] args) {
         
     Ruta r1 = new Ruta("San Luis", "La Toma", LocalTime.of(1, 0), true);
-    
+//    
     RutaData rd = new RutaData();
-    
-    rd.agregarRuta(r1);
+//    
+//    rd.agregarRuta(r1);
+        HorariosData hd=new HorariosData();
+        Horario horario=new Horario(r1,LocalTime.of(19,0),LocalTime.of(20, 0),true);
+            
+        hd.añadirHorario(horario);
         
     }
     
