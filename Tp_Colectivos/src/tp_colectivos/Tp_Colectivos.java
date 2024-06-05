@@ -5,6 +5,10 @@
  */
 package tp_colectivos;
 
+import AccesosDatos.RutaData;
+import Entidades.Ruta;
+import java.time.LocalTime;
+
 /**
  *
  * @author Lucas
@@ -15,7 +19,13 @@ public class Tp_Colectivos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+    Ruta r1 = new Ruta("San Luis", "La Toma", LocalTime.of(1, 0), true);
+    
+    RutaData rd = new RutaData();
+    
+    rd.agregarRuta(r1);
+        
     }
     
 }
