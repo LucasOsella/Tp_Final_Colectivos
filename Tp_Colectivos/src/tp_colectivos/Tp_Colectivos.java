@@ -55,14 +55,16 @@ public class Tp_Colectivos {
 
 //    List<Ruta> rutas=rd.listarRuta();
 //        System.out.println(rutas);
-    System.out.println("Apellido");
-        System.out.println(pd.buscarPasajeroPorApellido("Osella"));
-        System.out.println("Nombre");
-        System.out.println(pd.buscarPasjeroPorNombre("Lucas"));
-        System.out.println("Dni");
-        System.out.println(pd.buscarPasajeroPorDni("43282117"));
-       
-            
+//    System.out.println("Apellido");
+//        System.out.println(pd.buscarPasajeroPorApellido("Osella"));
+//        System.out.println("Nombre");
+//        System.out.println(pd.buscarPasjeroPorNombre("Lucas"));
+//        System.out.println("Dni");
+//        System.out.println(pd.buscarPasajeroPorDni("43282117"));
+//       
+        List<Horario>hora_origen= hd.listarHorariosPorOrigen("San Luis");
+        System.out.println("Horarios por origen");
+        System.out.println(hora_origen);
     }
     
 }
