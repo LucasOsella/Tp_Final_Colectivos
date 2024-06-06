@@ -18,7 +18,7 @@ public class HorariosData {
     }
      
     public void añadirHorario(Horario horario){
-      String sql="INSERT INTO horario(`idRuta`, `hora_salida`, `hora_llegada`, `estado`) VALUES (?,?,?,?)"; 
+      String sql="INSERT INTO `horario`(`idRuta`, `hora_salida`, `hora_llegada`, `estado`) VALUES (?,?,?,?)"; 
       Time hora_salida=Time.valueOf(horario.getHora_salida());
       Time hora_llegada=Time.valueOf(horario.getHora_llegada());
       try{
@@ -50,7 +50,7 @@ public class HorariosData {
             while (rs.next()) {                
                Horario hora =new Horario();
                hora.setIdHorario(rs.getInt("idHorario"));
-               hora.setIdRuta(rs.get);
+//               hora.setIdRuta(ruta.);
                hora.setHora_llegada(rs.getTime("hora_llegada").toLocalTime());
                hora.setHora_salida(rs.getTime("hora_salida").toLocalTime());
                hora.setEstado(rs.getBoolean("estado"));
@@ -85,7 +85,7 @@ public class HorariosData {
             hora.setHora_salida(rs.getTime("hora_salida").toLocalTime());
             hora.setHora_llegada(rs.getTime("hora_llegada").toLocalTime());
             hora.setEstado(rs.getBoolean("estado"));
-            hora.setIdRuta(ruta.);
+//            hora.setIdRuta(ruta.);
             horarios.add(hora);
            }
         
