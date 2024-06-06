@@ -31,12 +31,14 @@ public class Tp_Colectivos {
             
 //        hd.añadirHorario(horario);
 
+        List<Horario>horarios=hd.obtenerHorarios("San Luis");
+        System.out.println(horarios);
     Pasajero pas=new Pasajero ("Lucas","Osella","43282117","lucasosella01@gmail.com","2664506790",true);
     PasajerosData pd= new PasajerosData();
 //    pd.añadirPasajero(pas);
 
-    List pasajeros=pd.listarPasajero();
-        System.out.println(pasajeros);
+//    List pasajeros=pd.listarPasajero();
+//        System.out.println(pasajeros);
     }
     
 }

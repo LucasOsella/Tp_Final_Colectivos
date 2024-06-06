@@ -11,7 +11,7 @@ public class HorariosData {
 
 
      private Connection con=null;
-     private RutaData ruta=new RutaData();
+     private RutaData rd=new RutaData();
 
     public HorariosData() {
         con=Conexion.getConexion();
@@ -41,7 +41,7 @@ public class HorariosData {
           JOptionPane.showMessageDialog(null, "Erro al acceder a la tabla horario "+e.getMessage());
       }
     }
-    public List<Horario>obtenerHorarios(){
+    public List<Horario>obtenerHorarios(String ruta){
         String sql="SELECT `idHorario`, `idRuta`, `hora_salida`, `hora_llegada` FROM `horario` WHERE estado=1";
         List<Horario>horarios=new ArrayList();
            try {
@@ -50,10 +50,9 @@ public class HorariosData {
             while (rs.next()) {                
                Horario hora =new Horario();
                hora.setIdHorario(rs.getInt("idHorario"));
-//               hora.setIdRuta(ruta.);
+               hora.setIdRuta(rd.buscarRutaPorOrigen(ruta));
                hora.setHora_llegada(rs.getTime("hora_llegada").toLocalTime());
                hora.setHora_salida(rs.getTime("hora_salida").toLocalTime());
-               hora.setEstado(rs.getBoolean("estado"));
                horarios.add(hora);
                
             }
