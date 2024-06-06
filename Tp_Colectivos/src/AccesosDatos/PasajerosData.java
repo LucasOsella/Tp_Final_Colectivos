@@ -37,4 +37,26 @@ public class PasajerosData {
         
     }
     
+    public List<Pasajero> listarPasajero(){      
+       List<Pasajero>pasajeros=new ArrayList<>();
+       String sql="SELECT `nombre`, `apellido`, `dni`, `correo`, `telefono` FROM `pasajero` WHERE estado=1";
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();           
+            while(rs.next()){
+                Pasajero pas=new Pasajero();
+                pas.setNombre(rs.getString("nombre"));
+                pas.setApellido(rs.getString("apellido"));
+                pas.setDni(rs.getString("dni"));
+                pas.setCorreo(rs.getString("correo"));
+                pas.setTelefono(rs.getString("telefono"));
+                pasajeros.add(pas);
+                
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se puedo acceder a la tabla y listar todos los pasajeros activos "+e.getMessage());
+        }
+        return pasajeros;
+    }
 }
