@@ -8,6 +8,7 @@ package tp_colectivos;
 import AccesosDatos.*;
 import Entidades.*;
 import java.time.LocalTime;
+import java.util.List;
 
 /**
  *
@@ -32,7 +33,10 @@ public class Tp_Colectivos {
 
     Pasajero pas=new Pasajero ("Lucas","Osella","43282117","lucasosella01@gmail.com","2664506790",true);
     PasajerosData pd= new PasajerosData();
-    pd.añadirPasajero(pas);
+//    pd.añadirPasajero(pas);
+
+    List pasajeros=pd.listarPasajero();
+        System.out.println(pasajeros);
     }
     
 }
