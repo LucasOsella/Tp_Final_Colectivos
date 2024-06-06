@@ -60,5 +60,70 @@ public class PasajerosData {
         return pasajeros;
     }
     
+    public Pasajero buscarPasjeroPorNombre(String nombre){
+    String sql="SELECT `nombre`, `apellido`, `dni`, `correo`, `telefono` FROM `pasajero` WHERE nombre=?";
+    Pasajero pas=new Pasajero();
+        try {
+            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, nombre);
+            ResultSet rs=ps.executeQuery();
+            if (rs.next()) {
+             pas.setNombre(nombre);
+             pas.setApellido(rs.getString("apellido"));
+             pas.setCorreo(rs.getString("correo"));
+             pas.setDni(rs.getString("dni"));
+             pas.setTelefono(rs.getString("telefono"));
+             
+            }
+              ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se puedo acceder a la tabla y traer al alumno por nombre");
+        }
+        return pas;
+    }
     
+    public Pasajero buscarPasajeroPorApellido(String apellido){
+      String sql="SELECT `nombre`, `apellido`, `dni`, `correo`, `telefono` FROM `pasajero` WHERE apellido=?";
+    Pasajero pas=new Pasajero();
+        try {
+            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, apellido);
+            ResultSet rs=ps.executeQuery();
+            if (rs.next()) {
+             pas.setNombre(rs.getString("nombre"));
+             pas.setApellido(apellido);
+             pas.setCorreo(rs.getString("correo"));
+             pas.setDni(rs.getString("dni"));
+             pas.setTelefono(rs.getString("telefono"));
+             
+            }
+              ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se puedo acceder a la tabla y traer al alumno por nombre");
+        }
+        return pas;
+    
+    }
+    
+    public Pasajero buscarPasajeroPorDni(String dni){
+          String sql="SELECT `nombre`, `apellido`, `dni`, `correo`, `telefono` FROM `pasajero` WHERE dni=?";
+    Pasajero pas=new Pasajero();
+        try {
+            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, dni);
+            ResultSet rs=ps.executeQuery();
+            if (rs.next()) {
+             pas.setNombre(rs.getString("nombre"));
+             pas.setApellido(rs.getString("apellido"));
+             pas.setCorreo(rs.getString("correo"));
+             pas.setDni(dni);
+             pas.setTelefono(rs.getString("telefono"));            
+            }
+              ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se puedo acceder a la tabla y traer al alumno por nombre");
+        }
+        return pas;
+    
+    }
 }

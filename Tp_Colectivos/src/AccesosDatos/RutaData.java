@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -49,7 +48,6 @@ public class RutaData {
             ResultSet rs=ps.executeQuery();
             while(rs.next()){   
                Ruta ruta=new Ruta();
-               Time duracion_estimada = Time.valueOf(ruta.getDuracion_estimadad());
                ruta.setIdRuta(rs.getInt("idRuta"));
                ruta.setOrigen(rs.getString("origen"));
                ruta.setDestino(rs.getString("destino"));
@@ -116,11 +114,31 @@ public Ruta buscarRutaPorDestino(String destino){
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Ruta "+ex.getMessage());
             }
     return ruta;
-    
+    }  
 
+
+    public Ruta buscarRutaPorId(int id){
+        Ruta ruta=new Ruta();
+        String sql="SELECT `idRuta`, `origen`, `destino`, `duracion_estimada`, `estado` FROM `ruta` WHERE idRuta=?";
+        try {
+            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, id);
+            ResultSet rs=ps.executeQuery();
+            if (rs.next()) {
+                ruta.setIdRuta(id);
+                ruta.setOrigen(rs.getString("origen"));
+                ruta.setDestino(rs.getString("destino"));
+                ruta.setDuracion_estimadad(rs.getTime("duracion_estimada").toLocalTime());
+                ruta.setEstado(rs.getBoolean("estado"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se puedo acceder a la tabla y bucar rutas por id");
+        }
+        return ruta;
+    }
 }
 
-}
+
 
 
     

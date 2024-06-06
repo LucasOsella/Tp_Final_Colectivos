@@ -98,7 +98,7 @@ public class Pasajero {
 
     @Override
     public String toString() {
-        return nombre+" "+apellido+" "+correo+" "+telefono;
+        return nombre+" "+apellido+" "+correo+" "+telefono+" "+dni;
     }
     
     
