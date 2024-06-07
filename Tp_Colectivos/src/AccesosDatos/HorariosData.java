@@ -11,14 +11,14 @@ public class HorariosData {
 
 
      private Connection con=null;
-     private RutaData ruta=new RutaData();
+     private RutaData rd=new RutaData();
 
     public HorariosData() {
         con=Conexion.getConexion();
     }
      
     public void añadirHorario(Horario horario){
-      String sql="INSERT INTO horario(`idRuta`, `hora_salida`, `hora_llegada`, `estado`) VALUES (?,?,?,?)"; 
+      String sql="INSERT INTO `horario`(`idRuta`, `hora_salida`, `hora_llegada`, `estado`) VALUES (?,?,?,?)"; 
       Time hora_salida=Time.valueOf(horario.getHora_salida());
       Time hora_llegada=Time.valueOf(horario.getHora_llegada());
       try{
@@ -50,10 +50,9 @@ public class HorariosData {
             while (rs.next()) {                
                Horario hora =new Horario();
                hora.setIdHorario(rs.getInt("idHorario"));
-               hora.setIdRuta(rs.get);
+               hora.setIdRuta(rd.buscarRutaPorId(rs.getInt("idRuta")));
                hora.setHora_llegada(rs.getTime("hora_llegada").toLocalTime());
                hora.setHora_salida(rs.getTime("hora_salida").toLocalTime());
-               hora.setEstado(rs.getBoolean("estado"));
                horarios.add(hora);
                
             }
@@ -81,11 +80,9 @@ public class HorariosData {
             
             while(rs.next()){
             Horario hora=new Horario();
-            hora.setIdHorario(rs.getInt("idHorario"));
             hora.setHora_salida(rs.getTime("hora_salida").toLocalTime());
             hora.setHora_llegada(rs.getTime("hora_llegada").toLocalTime());
-            hora.setEstado(rs.getBoolean("estado"));
-            hora.setIdRuta(ruta.);
+            hora.setIdRuta(rd.buscarRutaPorId(id_ruta));
             horarios.add(hora);
            }
         
@@ -94,4 +91,28 @@ public class HorariosData {
         }
        return horarios; 
     }
-}
+    
+    public List<Horario>listarHorariosPorOrigen(String origen){
+         String sql="SELECT `idHorario`, `idRuta`, `hora_salida`, `hora_llegada` FROM `horario` WHERE estado=1";
+        List<Horario>horarios=new ArrayList();
+           try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()) {                
+               Horario hora =new Horario();
+               hora.setIdHorario(rs.getInt("idHorario"));
+               hora.setIdRuta(rd.buscarRutaPorOrigen(origen));
+               hora.setHora_llegada(rs.getTime("hora_llegada").toLocalTime());
+               hora.setHora_salida(rs.getTime("hora_salida").toLocalTime());
+               horarios.add(hora);
+               
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla Horarios y obtener sus horarios por origen "+e.getMessage());
+        }
+        return horarios;
+    }
+    
+ }
+

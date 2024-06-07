@@ -75,7 +75,11 @@ public class Horario {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
+
+    @Override
+    public String toString() {
+        return idRuta.getOrigen()+" "+hora_salida+" "+idRuta.getDestino()+" "+hora_llegada;
+    }
     
     
 }
