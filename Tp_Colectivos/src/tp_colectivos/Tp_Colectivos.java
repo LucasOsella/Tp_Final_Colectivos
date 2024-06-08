@@ -21,24 +21,24 @@ public class Tp_Colectivos {
      */
     public static void main(String[] args) {
         
-    Ruta r1 = new Ruta("San Luis", "La Toma", LocalTime.of(1, 0), true);
+   // Ruta r1 = new Ruta("San Luis", "La Toma", LocalTime.of(1, 0), true);
 //    
 //    Ruta r2 = new Ruta("La Toma","San Luis" , LocalTime.of(1, 0), true);
     RutaData rd = new RutaData();
 //    rd.agregarRuta(r2);
 //    
 //    rd.agregarRuta(r1);
-      Ruta r2=rd.buscarRutaPorId(2);
+     // Ruta r2=rd.buscarRutaPorId(2);
         
         
-        HorariosData hd=new HorariosData();
+     /*   HorariosData hd=new HorariosData();
         Horario horario=new Horario(r1,LocalTime.of(19,0),LocalTime.of(20, 0),true);
-        Horario horario_2=new Horario(r2,LocalTime.of(15,0),LocalTime.of(16, 0),true);
+        Horario horario_2=new Horario(r2,LocalTime.of(15,0),LocalTime.of(16, 0),true); */
             
 //          hd.añadirHorario(horario);
 //          hd.añadirHorario(horario_2);
 
-        System.out.println("Listar todas las rutas");
+     /*   System.out.println("Listar todas las rutas");
         List<Horario>horarios=hd.obtenerHorarios();
         System.out.println(horarios);
     
@@ -47,7 +47,7 @@ public class Tp_Colectivos {
         System.out.println(horarios_porRuta);
         
         Pasajero pas=new Pasajero ("Lucas","Osella","43282117","lucasosella01@gmail.com","2664506790",true);
-        PasajerosData pd= new PasajerosData();
+        PasajerosData pd= new PasajerosData(); */
 //    pd.añadirPasajero(pas);
 
 //    List pasajeros=pd.listarPasajero();
@@ -62,9 +62,25 @@ public class Tp_Colectivos {
 //        System.out.println("Dni");
 //        System.out.println(pd.buscarPasajeroPorDni("43282117"));
 //       
-        List<Horario>hora_origen= hd.listarHorariosPorOrigen("San Luis");
+        /*List<Horario>hora_origen= hd.listarHorariosPorOrigen("San Luis");
         System.out.println("Horarios por origen");
-        System.out.println(hora_origen);
+        System.out.println(hora_origen); */
+        
+        //AÑADIR COLECTIVO PARA PROBAR. 
+       // Colectivo cole = new Colectivo("AB123CD","Iveco","Sprinter 515",25,true);
+       // Colectivo cole = new Colectivo("AC132BX","Mercedes-Benz","1315",45,true);
+       //ColectivoData bondi = new ColectivoData();
+       // bondi.añadirColectivo(cole);
+        //MOSTRAR LOS COLECTIVOS. 
+        ColectivoData coles = new ColectivoData();
+        for (Colectivo bus:coles.mostrarColectivos()) {
+            System.out.println(bus.getIdColectivo());
+            System.out.println(bus.getMatricula());
+            System.out.println(bus.getMarca());
+            System.out.println(bus.getModelo());
+            System.out.println(bus.getCapacidad());
+            System.out.println(bus.isEstado());
+        }
     }
     
 }
