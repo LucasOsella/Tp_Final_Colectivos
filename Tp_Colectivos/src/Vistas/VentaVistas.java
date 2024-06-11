@@ -7,13 +7,14 @@ package Vistas;
 
 import Entidades.*;
 import AccesosDatos.*;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Lucas
  */
 public class VentaVistas extends javax.swing.JInternalFrame {
-
+Pasajero pas=new Pasajero();
     /**
      * Creates new form VentaVistas
      */
@@ -33,7 +34,7 @@ public class VentaVistas extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTdni = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jBbuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jThorario = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
@@ -46,6 +47,7 @@ public class VentaVistas extends javax.swing.JInternalFrame {
         jCcolectivo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jDfechaViaje = new com.toedter.calendar.JDateChooser();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Venta de Pasaje");
@@ -58,10 +60,10 @@ public class VentaVistas extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("Buscar Pasajero");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBbuscar.setText("Buscar Pasajero");
+        jBbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBbuscarActionPerformed(evt);
             }
         });
 
@@ -93,6 +95,13 @@ public class VentaVistas extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Fecha Del viaje");
 
+        jButton1.setText("Nueva Venta");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,7 +113,7 @@ public class VentaVistas extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
@@ -121,7 +130,7 @@ public class VentaVistas extends javax.swing.JInternalFrame {
                                             .addComponent(jTnombreYapellido, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                                             .addComponent(jTdni))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton1))
+                                        .addComponent(jBbuscar))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addGap(18, 18, 18)
@@ -133,11 +142,12 @@ public class VentaVistas extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(155, 155, 155)
                                         .addComponent(jLabel5)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING))))))
-                .addGap(32, 32, 32))
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton4))))))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,7 +158,7 @@ public class VentaVistas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTdni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jBbuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTnombreYapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -166,13 +176,15 @@ public class VentaVistas extends javax.swing.JInternalFrame {
                 .addGap(49, 49, 49)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton4))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,12 +194,37 @@ public class VentaVistas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTdniActionPerformed
 
+    private void jBbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBbuscarActionPerformed
+        // TODO add your handling code here:
+        PasajerosData pd=new PasajerosData();
+        try {
+            int DNI=Integer.parseInt(jTdni.getText());
+            String dni=jTdni.getText();
+            pas=pd.buscarPasajeroPorDni(dni);
+            if (pas!=null) {
+             jTnombreYapellido.setText(pas.getNombre()+" "+pas.getApellido());
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "El dni debe ser un numero");
+            jTdni.setText("");
+            jTdni.requestFocus();
+        }
+        
+    }//GEN-LAST:event_jBbuscarActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        limpiar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-
+    private void limpiar(){
+        jTdni.setText("");
+        jTnombreYapellido.setText("Nombre y Apellido");
+        jDfechaViaje.setDate(new java.util.Date());
+        pas=null;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBbuscar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -206,3 +243,4 @@ public class VentaVistas extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTnombreYapellido;
     // End of variables declaration//GEN-END:variables
 }
+

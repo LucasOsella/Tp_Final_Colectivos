@@ -121,7 +121,7 @@ public class PasajerosData {
             }
               ps.close();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "No se puedo acceder a la tabla y traer al alumno por nombre");
+            JOptionPane.showMessageDialog(null, "No se puedo acceder a la tabla y traer al alumno por Dni");
         }
         return pas;
     
