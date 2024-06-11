@@ -82,7 +82,7 @@ public class Tp_Colectivos {
 //            System.out.println(bus.getModelo());
 //            System.out.println(bus.getCapacidad());
 ////            System.out.println(bus.isEstado());
-        LocalTime hora=LocalTime.of(15,0) ;
+     LocalTime hora=LocalTime.of(15,0) ;
      LocalDate fecha = LocalDate.of(2024, 6, 9);
      Colectivo cole = bondi.buscarColectivoPorID(1);
      Pasajero pasajero = pd.buscarPasajeroPorID(1);
