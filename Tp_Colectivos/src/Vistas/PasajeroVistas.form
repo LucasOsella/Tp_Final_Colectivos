@@ -41,14 +41,14 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="JTFapellido" alignment="0" pref="243" max="32767" attributes="0"/>
                                       <Component id="JTFdocumento" alignment="0" pref="243" max="32767" attributes="0"/>
-                                      <Component id="JTFnombre1" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="JTFemail" alignment="1" max="32767" attributes="0"/>
                                       <Component id="JTFnombre" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabelNombre2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="JTFnombre2" min="-2" pref="241" max="-2" attributes="0"/>
+                                  <Component id="JTFtelefono" min="-2" pref="241" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jLabelNombre" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -57,11 +57,9 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jButtonNuevo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="jButtonEliminar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       <Component id="jButtonGuardar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jButtonSalir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -97,23 +95,22 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelNombre1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFnombre1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTFemail" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelNombre2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFnombre2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTFtelefono" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jCestado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="55" max="32767" attributes="0"/>
+              <EmptySpace pref="59" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonSalir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -154,14 +151,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNuevoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonEliminar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Eliminar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEliminarActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="jButtonSalir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salir"/>
@@ -196,9 +185,9 @@
         <Property name="text" type="java.lang.String" value="Pasajero"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFnombre1">
+    <Component class="javax.swing.JTextField" name="JTFemail">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFnombre1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFemailActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelNombre1">
@@ -206,9 +195,9 @@
         <Property name="text" type="java.lang.String" value="E-mail"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFnombre2">
+    <Component class="javax.swing.JTextField" name="JTFtelefono">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFnombre2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFtelefonoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelNombre2">

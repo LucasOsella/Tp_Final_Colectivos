@@ -5,11 +5,16 @@
  */
 package Vistas;
 
+import AccesosDatos.*;
+import Entidades.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lucas
  */
 public class PasajeroVistas extends javax.swing.JInternalFrame {
+Pasajero pas=new Pasajero();
 
     /**
      * Creates new form PasajeroVistas
@@ -34,15 +39,14 @@ public class PasajeroVistas extends javax.swing.JInternalFrame {
         JTFapellido = new javax.swing.JTextField();
         JTFnombre = new javax.swing.JTextField();
         jButtonNuevo = new javax.swing.JButton();
-        jButtonEliminar = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
         jLabelDocumento = new javax.swing.JLabel();
         jButtonGuardar = new javax.swing.JButton();
         jLabelApellido = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
-        JTFnombre1 = new javax.swing.JTextField();
+        JTFemail = new javax.swing.JTextField();
         jLabelNombre1 = new javax.swing.JLabel();
-        JTFnombre2 = new javax.swing.JTextField();
+        JTFtelefono = new javax.swing.JTextField();
         jLabelNombre2 = new javax.swing.JLabel();
 
         jLabelNombre.setText("Nombre");
@@ -68,13 +72,6 @@ public class PasajeroVistas extends javax.swing.JInternalFrame {
             }
         });
 
-        jButtonEliminar.setText("Eliminar");
-        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEliminarActionPerformed(evt);
-            }
-        });
-
         jButtonSalir.setText("Salir");
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,17 +93,17 @@ public class PasajeroVistas extends javax.swing.JInternalFrame {
         Titulo.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         Titulo.setText("Pasajero");
 
-        JTFnombre1.addActionListener(new java.awt.event.ActionListener() {
+        JTFemail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFnombre1ActionPerformed(evt);
+                JTFemailActionPerformed(evt);
             }
         });
 
         jLabelNombre1.setText("E-mail");
 
-        JTFnombre2.addActionListener(new java.awt.event.ActionListener() {
+        JTFtelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFnombre2ActionPerformed(evt);
+                JTFtelefonoActionPerformed(evt);
             }
         });
 
@@ -136,21 +133,19 @@ public class PasajeroVistas extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(JTFapellido, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                                         .addComponent(JTFdocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                                        .addComponent(JTFnombre1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(JTFemail, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(JTFnombre, javax.swing.GroupLayout.Alignment.TRAILING)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(jLabelNombre2)
                                     .addGap(18, 18, 18)
-                                    .addComponent(JTFnombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(JTFtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabelNombre))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonNuevo)
-                        .addGap(35, 35, 35)
-                        .addComponent(jButtonEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addGap(70, 70, 70)
                         .addComponent(jButtonGuardar)
-                        .addGap(34, 34, 34)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonSalir)
                         .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
@@ -178,20 +173,19 @@ public class PasajeroVistas extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNombre1)
-                    .addComponent(JTFnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTFemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNombre2)
-                    .addComponent(JTFnombre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTFtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelEstado)
                     .addComponent(jCestado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonNuevo)
                     .addComponent(jButtonSalir)
-                    .addComponent(jButtonEliminar)
                     .addComponent(jButtonGuardar))
                 .addContainerGap())
         );
@@ -208,42 +202,78 @@ public class PasajeroVistas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_JTFnombreActionPerformed
 
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
-
+        limpiar();
     }//GEN-LAST:event_jButtonNuevoActionPerformed
-
-    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-        // TODO add your handling code here:
-
-
-        
-    }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
-
+        dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-    
+     PasajerosData pd=new PasajerosData();
+        try {
+            int DNI=Integer.parseInt(JTFdocumento.getText());
+            String dni=JTFdocumento.getText();
+            String nombre=JTFnombre.getText();
+            String apellido=JTFapellido.getText();
+            String email=JTFemail.getText();
+            String tel=JTFtelefono.getText();
+            if (nombre.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "El nombre no puede estar vacio");
+                JTFnombre.requestFocus();
+            }
+            if (apellido.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "El apellido no puede estar vacio");
+                JTFapellido.requestFocus();
+            }
+            if (email.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "El email no puede estar vacio");
+                JTFemail.requestFocus();
+            }
+            if (tel.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "El telefono no puede estar vacio");
+                JTFtelefono.requestFocus();
+            }
+              
+            boolean estado =jCestado.isSelected();
+            
+            if(pas==null){
+             pas=new Pasajero(nombre,apellido,dni,email,tel,estado);
+             pd.añadirPasajero(pas);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "El dni debe ser un numero");
+            JTFdocumento.setText("");
+            JTFdocumento.requestFocus();
+        }
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
-    private void JTFnombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFnombre1ActionPerformed
+    private void JTFemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFemailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTFnombre1ActionPerformed
+    }//GEN-LAST:event_JTFemailActionPerformed
 
-    private void JTFnombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFnombre2ActionPerformed
+    private void JTFtelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFtelefonoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTFnombre2ActionPerformed
+    }//GEN-LAST:event_JTFtelefonoActionPerformed
 
+    private void limpiar(){
+    JTFnombre.setText("");
+    JTFapellido.setText("");
+    JTFdocumento.setText("");
+    JTFemail.setText("");
+    JTFtelefono.setText("");
+    jCestado.setSelected(false);
+    pas=null;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTFapellido;
     private javax.swing.JTextField JTFdocumento;
+    private javax.swing.JTextField JTFemail;
     private javax.swing.JTextField JTFnombre;
-    private javax.swing.JTextField JTFnombre1;
-    private javax.swing.JTextField JTFnombre2;
+    private javax.swing.JTextField JTFtelefono;
     private javax.swing.JLabel Titulo;
-    private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonNuevo;
     private javax.swing.JButton jButtonSalir;
