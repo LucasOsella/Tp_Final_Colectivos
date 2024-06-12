@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package AccesosDatos;
 
 import Entidades.Colectivo;
@@ -45,8 +41,32 @@ public class ColectivoData {
              }
          } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error al acceder a la tabla colectivo");
-         }
+         } 
      }
+     
+     public Colectivo buscarColectivoPorID(int id){
+     String sql = "SELECT `matricula`, `marca`, `modelo`, `capacidad`, `estado` FROM `colectivo` WHERE estado = 1 and idColectivo =?";
+     Colectivo cole = new Colectivo();
+     try {
+            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1,id);
+            ResultSet rs=ps.executeQuery();
+            if (rs.next()) {
+             cole.setIdColectivo(id);
+             cole.setMatricula(rs.getString("matricula"));
+             cole.setMarca(rs.getString("marca"));
+             cole.setModelo(rs.getString("modelo"));
+             cole.setCapacidad(rs.getInt("capacidad"));
+                       
+            }
+              ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se puedo acceder a la tabla colectivo");
+        }
+        return cole;
+     
+     }
+     
      public List<Colectivo> mostrarColectivos (){
          List<Colectivo> colectivos = new ArrayList();
          String sql = "SELECT * FROM colectivo";

@@ -121,9 +121,35 @@ public class PasajerosData {
             }
               ps.close();
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se puedo acceder a la tabla y traer al alumno por Dni");
+        }
+        return pas;
+    
+    }
+    
+       
+    public Pasajero buscarPasajeroPorID(int id){
+      String sql="SELECT `nombre`, `apellido`, `dni`, `correo`, `telefono` FROM `pasajero` WHERE idPasajero=?";
+    Pasajero pas=new Pasajero();
+        try {
+            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, id);
+            ResultSet rs=ps.executeQuery();
+            if (rs.next()) {
+             pas.setIdPasajero(id);
+             pas.setNombre(rs.getString("nombre"));
+             pas.setApellido(rs.getString("apellido"));
+             pas.setCorreo(rs.getString("correo"));
+             pas.setDni(rs.getString("dni"));
+             pas.setTelefono(rs.getString("telefono"));
+             
+            }
+              ps.close();
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "No se puedo acceder a la tabla y traer al alumno por nombre");
         }
         return pas;
     
     }
+    
 }
