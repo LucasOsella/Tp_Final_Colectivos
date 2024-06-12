@@ -82,14 +82,15 @@ public class Tp_Colectivos {
 //            System.out.println(bus.getModelo());
 //            System.out.println(bus.getCapacidad());
 ////            System.out.println(bus.isEstado());
-     LocalTime hora=LocalTime.of(15,0) ;
-     LocalDate fecha = LocalDate.of(2024, 6, 9);
-     Colectivo cole = bondi.buscarColectivoPorID(1);
-     Pasajero pasajero = pd.buscarPasajeroPorID(1);
-     Ruta ruta = rd.buscarRutaPorId(1);
-     VentasData ventitas = new VentasData();
-     Pasaje pasajito = new Pasaje(pasajero, cole, ruta, fecha, LocalTime.of(15, 0), 5, 25);
-     ventitas.registrarVenta(pasajito);
+     
+//    LocalTime hora=LocalTime.of(15,0) ;
+//     LocalDate fecha = LocalDate.of(2024, 6, 9);
+//     Colectivo cole = bondi.buscarColectivoPorID(1);
+//     Pasajero pasajero = pd.buscarPasajeroPorID(1);
+//     Ruta ruta = rd.buscarRutaPorId(1);
+//     VentasData ventitas = new VentasData();
+//     Pasaje pasajito = new Pasaje(pasajero, cole, ruta, fecha, LocalTime.of(15, 0), 5, 25);
+//     ventitas.registrarVenta(pasajito);
 //     List <Pasaje> horarioventa = ventitas.historialPasajesPorHorario(hora);
 //        System.out.println(horarioventa);
 
