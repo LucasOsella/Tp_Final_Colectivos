@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author Lucas
  */
 public class PasajeroVistas extends javax.swing.JInternalFrame {
-Pasajero pas=new Pasajero();
+Pasajero pas=null;
 
     /**
      * Creates new form PasajeroVistas

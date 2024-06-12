@@ -3,10 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
             <file>file:/C:/Users/Juan%20fua%20el%20Diego/Documents/GitHub/Tp_Final_Colectivos/Tp_Colectivos/src/Vistas/RutaVistas.java</file>
             <file>file:/C:/Users/Juan%20fua%20el%20Diego/Documents/GitHub/Tp_Final_Colectivos/Tp_Colectivos/src/Vistas/VentaVistas.java</file>
             <file>file:/C:/Users/Juan%20fua%20el%20Diego/Documents/GitHub/Tp_Final_Colectivos/Tp_Colectivos/src/Vistas/ColectivoVistas.java</file>
             <file>file:/C:/Users/Juan%20fua%20el%20Diego/Documents/GitHub/Tp_Final_Colectivos/Tp_Colectivos/src/Vistas/PasajeroVistas.java</file>
+=======
+            <file>file:/C:/Users/Lucas/Documents/GitHub/TrabajoAulico/Tp_Final_Colectivos/Tp_Colectivos/src/AccesosDatos/PasajerosData.java</file>
+            <file>file:/C:/Users/Lucas/Documents/GitHub/TrabajoAulico/Tp_Final_Colectivos/Tp_Colectivos/src/Entidades/Pasaje.java</file>
+            <file>file:/C:/Users/Lucas/Documents/GitHub/TrabajoAulico/Tp_Final_Colectivos/Tp_Colectivos/src/Vistas/VistaPrincipa.java</file>
+            <file>file:/C:/Users/Lucas/Documents/GitHub/TrabajoAulico/Tp_Final_Colectivos/Tp_Colectivos/src/AccesosDatos/VentasData.java</file>
+            <file>file:/C:/Users/Lucas/Documents/GitHub/TrabajoAulico/Tp_Final_Colectivos/Tp_Colectivos/src/Vistas/PasajeroVistas.java</file>
+            <file>file:/C:/Users/Lucas/Documents/GitHub/TrabajoAulico/Tp_Final_Colectivos/Tp_Colectivos/src/Vistas/VentaVistas.java</file>
+            <file>file:/C:/Users/Lucas/Documents/GitHub/TrabajoAulico/Tp_Final_Colectivos/Tp_Colectivos/src/tp_colectivos/Tp_Colectivos.java</file>
+            <file>file:/C:/Users/Lucas/Documents/GitHub/TrabajoAulico/Tp_Final_Colectivos/Tp_Colectivos/src/Entidades/Pasajero.java</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>
