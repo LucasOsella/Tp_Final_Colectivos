@@ -189,17 +189,14 @@ public class RutaVistas extends javax.swing.JInternalFrame {
           if(origen.isEmpty()){
             JOptionPane.showMessageDialog(null,"El Origen no puede estar vacio");
             JTForigen.requestFocus();
-            return;
           }
           if(destino.isEmpty()){
           JOptionPane.showMessageDialog(null, "El destino no puede estar vacio");
           JTFdestino.requestFocus();
-          return;
           }
           if(duracion==null){
           JOptionPane.showMessageDialog(null, "La duracion no puede estar vacia");
           JTFduracion.requestFocus();
-          return;
           }
           
           try {
@@ -208,7 +205,6 @@ public class RutaVistas extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Ingrese un formato de hora correcto (HH:mm:ss)");
             JTFduracion.setText("");
             JTFduracion.requestFocus();
-            return;
         }
 
           boolean estado = JCBestado.isSelected();
