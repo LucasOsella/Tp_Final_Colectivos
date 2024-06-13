@@ -47,7 +47,7 @@ try {
             ResultSet rs=ps.getGeneratedKeys();
             if (rs.next()) {
                 pasaje.setIdPasaje(rs.getInt("idPasaje"));
-                JOptionPane.showMessageDialog(null, "Pasaje añadido con exito numero de pasje "+pasaje.getIdPasaje());
+                JOptionPane.showMessageDialog(null, "Pasaje añadido con exito numero de pasaje "+pasaje.getIdPasaje());
             }
             ps.close();
         } catch (SQLException e) {
