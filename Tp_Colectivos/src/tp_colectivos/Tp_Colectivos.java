@@ -48,8 +48,8 @@ public class Tp_Colectivos {
 //        System.out.println("Horario por Ruta id");
 //        System.out.println(horarios_porRuta);
 //        
-        Pasajero pas=new Pasajero ("Lucas","Osella","43282117","lucasosella01@gmail.com","2664506790",true);
-        PasajerosData pd= new PasajerosData(); 
+      //  Pasajero pas=new Pasajero ("Lucas","Osella","43282117","lucasosella01@gmail.com","2664506790",true);
+       // PasajerosData pd= new PasajerosData(); 
 //        pd.añadirPasajero(pas);
 
 //    List pasajeros=pd.listarPasajero();
@@ -70,8 +70,8 @@ public class Tp_Colectivos {
         
         //AÑADIR COLECTIVO PARA PROBAR. 
        // Colectivo cole = new Colectivo("AB123CD","Iveco","Sprinter 515",25,true);
-        Colectivo cole1 = new Colectivo("AC132BX","Mercedes-Benz","1315",45,true);
-        ColectivoData bondi = new ColectivoData();
+      //  Colectivo cole1 = new Colectivo("AC132BX","Mercedes-Benz","1315",45,true);
+       // ColectivoData bondi = new ColectivoData();
 //        bondi.añadirColectivo(cole1);
         //MOSTRAR LOS COLECTIVOS. 
 //        //ColectivoData coles = new ColectivoData();
@@ -82,14 +82,14 @@ public class Tp_Colectivos {
 //            System.out.println(bus.getModelo());
 //            System.out.println(bus.getCapacidad());
 ////            System.out.println(bus.isEstado());
-     LocalTime hora=LocalTime.of(15,0) ;
+     /*LocalTime hora=LocalTime.of(15,0) ;
      LocalDate fecha = LocalDate.of(2024, 6, 9);
      Colectivo cole = bondi.buscarColectivoPorID(1);
      Pasajero pasajero = pd.buscarPasajeroPorID(1);
      Ruta ruta = rd.buscarRutaPorId(1);
      VentasData ventitas = new VentasData();
      Pasaje pasajito = new Pasaje(pasajero, cole, ruta, fecha, LocalTime.of(15, 0), 5, 25);
-     ventitas.registrarVenta(pasajito);
+     ventitas.registrarVenta(pasajito); */
 //     List <Pasaje> horarioventa = ventitas.historialPasajesPorHorario(hora);
 //        System.out.println(horarioventa);
 

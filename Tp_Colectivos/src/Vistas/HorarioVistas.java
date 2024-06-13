@@ -5,17 +5,32 @@
  */
 package Vistas;
 
+import AccesosDatos.HorariosData;
+import AccesosDatos.RutaData;
+import Entidades.Horario;
+import Entidades.Ruta;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lucas
  */
 public class HorarioVistas extends javax.swing.JInternalFrame {
 
+    private HorariosData horariosData = new HorariosData();
+    private RutaData rutaData = new RutaData();
+
     /**
      * Creates new form HorarioVistas
      */
     public HorarioVistas() {
         initComponents();
+        llenarComboRuta();
+        limpiarCampos();
+        
     }
 
     /**
@@ -27,127 +42,288 @@ public class HorarioVistas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jthorariosalida = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jthorariollegada = new javax.swing.JTextField();
+        jBguardar = new javax.swing.JButton();
+        jBnuevo = new javax.swing.JButton();
+        jcomborutas = new javax.swing.JComboBox<>();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        label1 = new java.awt.Label();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Gestion de Horario");
 
-        jLabel2.setText("Origen de Ruta");
-
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Elegir Ruta");
 
         jLabel3.setText("Horario de salida");
 
         jLabel4.setText("Horario de llegada");
 
-        jLabel5.setText("Estado");
+        jBguardar.setText("Añadir Horario");
+        jBguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBguardarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Guardar");
+        jBnuevo.setText("Nuevo");
+        jBnuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBnuevoActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Nuevo");
+        jcomborutas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcomborutasActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setText("Si");
+        jRadioButton3.setActionCommand("Si");
+
+        buttonGroup1.add(jRadioButton4);
+        jRadioButton4.setText("No");
+
+        label1.setText("Ruta disponible");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(23, 23, 23))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox1)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2)
-                                .addGap(71, 71, 71))))))
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jcomborutas, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jthorariosalida, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jthorariollegada, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButton3)
+                        .addGap(40, 40, 40)
+                        .addComponent(jRadioButton4)
+                        .addGap(598, 598, 598))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jBnuevo)
+                        .addGap(68, 68, 68)
+                        .addComponent(jBguardar)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(jCheckBox1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jcomborutas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jthorariosalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jthorariollegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton3)
+                            .addComponent(jRadioButton4)))
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
-                .addGap(16, 16, 16))
+                    .addComponent(jBnuevo)
+                    .addComponent(jBguardar))
+                .addGap(86, 86, 86))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jBnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBnuevoActionPerformed
+        limpiarCampos();
+        jRadioButton3.setSelected(false);
+        jRadioButton4.setSelected(false);
 
+    }//GEN-LAST:event_jBnuevoActionPerformed
+//Boton "Guardar".
+    private void jBguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBguardarActionPerformed
+        try {
+            // Obtener los datos ingresados por el usuario desde la GUI
+            String horaSalida = jthorariosalida.getText().trim();
+            String horaLlegada = jthorariollegada.getText().trim();
+            Ruta rutaSeleccionada = (Ruta) jcomborutas.getSelectedItem();
+
+            // Validar que se hayan ingresado ambos horarios
+            if (horaSalida.isEmpty() || horaLlegada.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor ingrese la hora de salida y llegada.");
+                return;
+            }
+
+            // Crear un nuevo objeto Horario con los datos ingresados
+            Horario nuevoHorario = new Horario();
+            nuevoHorario.setHora_salida(LocalTime.parse(horaSalida)); // Convertir String a LocalTime
+            nuevoHorario.setHora_llegada(LocalTime.parse(horaLlegada)); // Convertir String a LocalTime
+            nuevoHorario.setIdRuta(rutaSeleccionada); // Asignar la ruta seleccionada
+
+            // Llamar al método en HorariosData para añadir el nuevo horario
+            horariosData.añadirHorario(nuevoHorario);
+
+            // Mostrar mensaje de éxito
+            JOptionPane.showMessageDialog(this, "Horario añadido correctamente.");
+
+            // Limpiar los campos después de añadir el horario
+            jthorariosalida.setText("");
+            jthorariollegada.setText("");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al añadir el horario: " + e.getMessage());
+        }
+    }//GEN-LAST:event_jBguardarActionPerformed
+//Los usuarios deben poder visualizar los horarios disponibles para una ruta específica.  
+//Llenar datos de vista desde el combo.
+    private void jcomborutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomborutasActionPerformed
+        try {
+            Ruta rutaSeleccionada = (Ruta) jcomborutas.getSelectedItem();
+            if (rutaSeleccionada != null) {
+                List<Horario> horarios = horariosData.listarHorariosPorRuta(rutaSeleccionada.getIdRuta());
+
+                if (!horarios.isEmpty()) {
+                    Horario primerHorario = horarios.get(0);
+                    jthorariosalida.setText(primerHorario.getHora_salida().toString());
+                    jthorariollegada.setText(primerHorario.getHora_llegada().toString());
+                    if (!rutaSeleccionada.isEstado()) {
+                        jRadioButton3.setSelected(true);
+
+                    } else {
+                        jRadioButton4.setSelected(true);
+                        jthorariosalida.setEditable(true);
+                        jthorariollegada.setEditable(true);
+                    }
+                    jRadioButton3.setEnabled(false);
+                    jRadioButton4.setEnabled(false);
+                    jthorariosalida.setEditable(false);
+                    jthorariollegada.setEditable(false);
+                    jBguardar.setEnabled(false);
+
+                } else {
+                    jthorariosalida.setText("00:00:00");
+                    jthorariollegada.setText("00:00:00");
+                    jBguardar.setEnabled(true);
+                    jthorariosalida.setEditable(true);
+                    jthorariollegada.setEditable(true);
+                    jBguardar.setEnabled(true);
+                }
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al obtener los horarios: " + e.getMessage());
+        }
+        try {
+            Ruta rutaSeleccionada = (Ruta) jcomborutas.getSelectedItem();
+            if (rutaSeleccionada != null) {
+                List<Horario> horarios = horariosData.listarHorariosPorRuta(rutaSeleccionada.getIdRuta());
+
+                if (!horarios.isEmpty()) {
+                    Horario primerHorario = horarios.get(0);
+                    jthorariosalida.setText(primerHorario.getHora_salida().toString());
+                    jthorariollegada.setText(primerHorario.getHora_llegada().toString());
+
+                } else {
+                    jthorariosalida.setText("Sin horario");
+                    jthorariollegada.setText("Sin horario");
+                    jRadioButton3.setSelected(rutaSeleccionada.isEstado());
+
+                }
+                if (rutaSeleccionada.isEstado()) {
+                    jRadioButton3.setSelected(true);
+                } else {
+                    jRadioButton4.setSelected(false);
+                }
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al obtener los horarios: " + e.getMessage());
+        }
+
+
+    }//GEN-LAST:event_jcomborutasActionPerformed
+
+    private void limpiarCampos() {
+
+        jthorariollegada.setText("");
+        jthorariosalida.setText("");
+        jcomborutas.setSelectedIndex(-1);
+
+    }
+
+    public void llenarComboRuta() {
+        List<Ruta> rutaselected = rutaData.listarRuta();
+        for (Ruta ruta : rutaselected) {
+            jcomborutas.addItem(ruta);
+
+        }
+        jcomborutas.setSelectedIndex(-1);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jBguardar;
+    private javax.swing.JButton jBnuevo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JComboBox<Ruta> jcomborutas;
+    private javax.swing.JTextField jthorariollegada;
+    private javax.swing.JTextField jthorariosalida;
+    private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 }

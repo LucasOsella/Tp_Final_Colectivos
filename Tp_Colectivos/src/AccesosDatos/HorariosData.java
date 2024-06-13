@@ -5,7 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.*;
+import java.time.LocalTime;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 public class HorariosData {
 
@@ -113,6 +116,27 @@ public class HorariosData {
         }
         return horarios;
     }
-    
- }
+   public List<Horario> listarHorariosporSalida(String horasalida) {
+    List<Horario> horaextra = new ArrayList<>();
+    String sql = "SELECT * FROM horarios WHERE hora_salida = ?";
+         try {
+             PreparedStatement ps = con.prepareStatement(sql);
+             LocalTime localtime = LocalTime.parse(horasalida);
+             ps.setTime(1,Time.valueOf(horasalida));
+             ResultSet rs = ps.executeQuery();
+             while(rs.next()){
+               Horario hr = new Horario();
+                hr.setHora_llegada(rs.getTime("hora_llegada").toLocalTime());
+                hr.setHora_salida(rs.getTime("hora_salida").toLocalTime());
+                hr.setIdHorario(rs.getInt("ID_Horario"));
+                hr.setEstado(rs.getBoolean("Estado"));
+                horaextra.add(hr);
+            }
+             
+         } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null,"Error al ingresar a la tabla Horario.");
+         } 
+         return horaextra;
+}
 
+}   
