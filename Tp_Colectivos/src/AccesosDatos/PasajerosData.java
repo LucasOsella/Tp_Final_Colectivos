@@ -39,12 +39,13 @@ public class PasajerosData {
     
     public List<Pasajero> listarPasajero(){      
        List<Pasajero>pasajeros=new ArrayList<>();
-       String sql="SELECT `nombre`, `apellido`, `dni`, `correo`, `telefono` FROM `pasajero` WHERE estado=1";
+       String sql="SELECT `idPasajero`, `nombre`, `apellido`, `dni`, `correo`, `telefono` FROM `pasajero` WHERE estado=1";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             ResultSet rs=ps.executeQuery();           
-            while(rs.next()){
+            while(rs.next()){               
                 Pasajero pas=new Pasajero();
+                pas.setIdPasajero(rs.getInt("idPasajero"));
                 pas.setNombre(rs.getString("nombre"));
                 pas.setApellido(rs.getString("apellido"));
                 pas.setDni(rs.getString("dni"));
@@ -61,13 +62,14 @@ public class PasajerosData {
     }
     
     public Pasajero buscarPasjeroPorNombre(String nombre){
-    String sql="SELECT `nombre`, `apellido`, `dni`, `correo`, `telefono` FROM `pasajero` WHERE nombre=?";
+    String sql="SELECT `idPasajero`, `nombre`, `apellido`, `dni`, `correo`, `telefono` FROM `pasajero` WHERE nombre=?";
     Pasajero pas=new Pasajero();
         try {
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, nombre);
             ResultSet rs=ps.executeQuery();
             if (rs.next()) {
+             pas.setIdPasajero(rs.getInt("idPasajero"));
              pas.setNombre(nombre);
              pas.setApellido(rs.getString("apellido"));
              pas.setCorreo(rs.getString("correo"));
@@ -83,13 +85,14 @@ public class PasajerosData {
     }
     
     public Pasajero buscarPasajeroPorApellido(String apellido){
-      String sql="SELECT `nombre`, `apellido`, `dni`, `correo`, `telefono` FROM `pasajero` WHERE apellido=?";
+      String sql="SELECT `idPasajero`, `nombre`, `apellido`, `dni`, `correo`, `telefono` FROM `pasajero` WHERE apellido=?";
     Pasajero pas=new Pasajero();
         try {
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, apellido);
             ResultSet rs=ps.executeQuery();
             if (rs.next()) {
+             pas.setIdPasajero(rs.getInt("idPasajero"));
              pas.setNombre(rs.getString("nombre"));
              pas.setApellido(apellido);
              pas.setCorreo(rs.getString("correo"));
@@ -106,13 +109,14 @@ public class PasajerosData {
     }
     
     public Pasajero buscarPasajeroPorDni(String dni){
-          String sql="SELECT `nombre`, `apellido`, `dni`, `correo`, `telefono` FROM `pasajero` WHERE dni=?";
+          String sql="SELECT `idPasajero`, `nombre`, `apellido`, `dni`, `correo`, `telefono` FROM `pasajero` WHERE dni=?";
     Pasajero pas=new Pasajero();
         try {
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, dni);
             ResultSet rs=ps.executeQuery();
             if (rs.next()) {
+             pas.setIdPasajero(rs.getInt("idPasajero"));
              pas.setNombre(rs.getString("nombre"));
              pas.setApellido(rs.getString("apellido"));
              pas.setCorreo(rs.getString("correo"));
