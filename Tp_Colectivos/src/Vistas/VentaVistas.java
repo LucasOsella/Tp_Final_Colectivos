@@ -543,7 +543,7 @@ private List<Colectivo>colectivos;
             int asiento=(int)jCasientos.getSelectedItem();
             Pasaje pasaje=new Pasaje(pas,c,r,fecha,hora_salida,asiento,precio);
             
-            if (c.getCapacidad()>0&&tam_pasj<c.getCapacidad()&&tam_pasjr<c.getCapacidad()) {
+            if (c.getCapacidad()>0&&tam_pasj<=c.getCapacidad()&&tam_pasjr<=c.getCapacidad()) {
              vd.registrarVenta(pasaje);
              c.setCapacidad(c.getCapacidad()-1);             
              eliminarAsiento();

@@ -243,19 +243,19 @@ public class HorarioVistas extends javax.swing.JInternalFrame {
                         jthorariosalida.setEditable(true);
                         jthorariollegada.setEditable(true);
                     }
-                    jRadioButton3.setEnabled(false);
-                    jRadioButton4.setEnabled(false);
-                    jthorariosalida.setEditable(false);
-                    jthorariollegada.setEditable(false);
-                    jBguardar.setEnabled(false);
+//                    jRadioButton3.setEnabled(false);
+//                    jRadioButton4.setEnabled(false);
+//                    jthorariosalida.setEditable(false);
+//                    jthorariollegada.setEditable(false);
+//                    jBguardar.setEnabled(false);
 
                 } else {
                     jthorariosalida.setText("00:00:00");
                     jthorariollegada.setText("00:00:00");
-                    jBguardar.setEnabled(true);
-                    jthorariosalida.setEditable(true);
-                    jthorariollegada.setEditable(true);
-                    jBguardar.setEnabled(true);
+//                    jBguardar.setEnabled(true);
+//                    jthorariosalida.setEditable(true);
+//                    jthorariollegada.setEditable(true);
+//                    jBguardar.setEnabled(true);
                 }
 
             }
